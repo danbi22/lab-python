@@ -215,6 +215,7 @@ print(f'subtraction: {subtraction}')
 list = [x for x in range(1, 11)]
 print(list)
 
+
 # [1, 4, 9, 18, ..., 81, 100]
 list = [x ** 2 for x in range(1,11)]
 print(list)
@@ -222,6 +223,9 @@ print(list)
 # [0, 10) 범위의 난수 10개를 저장하는 리스트
 list = [random.randrange(0, 10) for _ in range(10)]
 print(list)
+
+
+
 
 '''
 List comprehension(리스트 내포)
