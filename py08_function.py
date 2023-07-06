@@ -85,3 +85,56 @@ filter 함수
     조건에 맞는 원소들만 선택
 '''
 
+def my_filter(iterable, fn):
+    """
+    리스트 iterable의 원소들 중에서 함수 fn의 호출 결과 값이 True인 원소들로만 이루어진 리스트를 리턴
+
+    :param iterable: 리스트
+    :param fn: 아규먼트가 1개이고, True/False를 리턴하는 함수.
+    :return: 리스트
+    """
+    list = []
+    for x in iterable:
+        if fn(x) == True:
+            list.append(x)
+
+    return list
+
+list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(my_filter(list, lambda x: True if x % 2 == 0 else False))
+
+'''
+map 함수 
+    원소들을 규칙에 따라서 다른 값으로 변환.
+'''
+
+def my_mapper(iterable, fn):
+    """
+    리스트 iterable의 원소들을 함수 fn의 리턴 값으로 변환한 리스트를 리턴
+    :param iterable: 리스트
+    :param fn: 아규먼트가 1개이고 리턴값이 있는 함수.
+    :return:
+    """
+    list = [fn(x) for x in iterable]
+
+    return list
+
+print(list)
+print(my_mapper(list, lambda x: x + 1))
+
+'''
+리스트 numbers의 원소들의 제곱으로 이루어진 리스트
+'''
+print(my_mapper(list, lambda x: x**2))
+
+
+# 리스트 numbers의 원소가 짝수이면 'even', 홀수이면 'odd'를 저장하는 리스트
+print(my_mapper(list, lambda x: 'even' if x % 2 != 0 else 'odd'))
+
+strings = ['python', 'java', 'javascript', 'sql']
+
+# strings가 가지고 있는 문자열의 길이들로 이루어진 리스트
+print(my_mapper(strings, lambda x: len(x)))
+
+# strings의 문자열들을 모두 대문자로 변환한 리스트
+print(my_mapper(strings, lambda x: x.upper()))
